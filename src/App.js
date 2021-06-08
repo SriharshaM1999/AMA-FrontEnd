@@ -1,11 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import Sign from './Components/Sign'
 
 function App() {
   return (
     <div className="App">
-     
-    </div>
+    
+          <Sign type="Sign Up" username='true' forgotPassword='false'/>
+          {/* <Sign type="Sign In" username='false'forgotPassword='true' /> */}
+  </div>
   );
 }
 

@@ -1,0 +1,11 @@
+button{
+    background:#0b87cf;
+    width:30vw;
+    padding:2%;;
+    font-size:1.2rem;
+    margin-top:4%;
+    border:none;
+    outline:0.5px solid gray;
+    color:white;
+    font-weight:bold;
+} 
