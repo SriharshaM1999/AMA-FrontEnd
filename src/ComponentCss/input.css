@@ -3,9 +3,15 @@ input{
    padding:1.2%;;
    font-size:1.2rem;
    margin-top:5%;
+   margin-bottom:5%;
    border:0.1px solid gray;
    outline:none;
 
+}
+
+label{
+   font-size: 1rem;
+   font-weight:bold;
 }
 
 
@@ -18,7 +24,7 @@ input:hover{
 @media screen and (max-width:600px) {
 
    input{
-      width:60%;
+      width:100%;
    }
    
 }

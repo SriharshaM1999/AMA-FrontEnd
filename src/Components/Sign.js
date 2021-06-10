@@ -150,7 +150,7 @@ class SignUp extends Component{
 
 
         return (
-            <div className="sign-up">
+            <div className="sign">
 
                 <FcLock style={styles.icon}/>
 
@@ -173,7 +173,7 @@ class SignUp extends Component{
                 <Button name='SIGN-UP' clickHandler={this.buttonClickHandler}/>
                 <div id="bottom-elements">
                     {this.props.forgotPassword==='true' && <h5>Forget Password</h5> }
-                        <h5>Have Account</h5>
+                        <h5>Have Account...?</h5>
                 </div>
 
             </div>

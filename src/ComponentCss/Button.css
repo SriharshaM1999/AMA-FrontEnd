@@ -1,5 +1,5 @@
 button{
-    background:#0b87cf;
+    background:black;
     width:30vw;
     padding:2%;;
     font-size:1.2rem;
@@ -12,4 +12,11 @@ button{
 
 button:hover{
     background:rgb(32, 81, 145);
+}
+
+@media only screen and (max-width:600px){
+    button{
+        margin-right:12vh;
+        width:100%;
+    }
 }
