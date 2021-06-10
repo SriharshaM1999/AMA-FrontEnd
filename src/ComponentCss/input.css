@@ -2,7 +2,7 @@ input{
    width:30vw;
    padding:1.2%;;
    font-size:1.2rem;
-   margin-top:2%;
+   margin-top:5%;
    border:0.1px solid gray;
    outline:none;
 
@@ -10,7 +10,7 @@ input{
 
 
 input:hover{
-   border:2px solid #0e1cdbb6;
+   border:2px solid #070e6eb6;
 
 }
 

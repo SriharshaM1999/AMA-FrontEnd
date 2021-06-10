@@ -1,11 +1,16 @@
 .sign-up{
-    margin-top:5%;
     display:flex;
     flex-direction:column;
     justify-content:center;
     flex-wrap: wrap;
     align-items:center;
     font-family:'Arial';
+    width:50%;
+    margin-top:9%;
+    margin-left:22%;
+    height:60%;
+    box-shadow: 10px 5px 5px 10px lightgray;
+
 }
 
 h4{

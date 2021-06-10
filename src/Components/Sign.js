@@ -3,6 +3,7 @@ import Input from './Input'
 import {FcLock} from 'react-icons/fc'
 import '../ComponentCss/Sign.css'
 import Button from './Button'
+import axios from 'axios'
 
 class SignUp extends Component{
 
@@ -10,9 +11,9 @@ class SignUp extends Component{
         super(props)
     
         this.state = {
-             username:"",
-             email:"",
-             password:"",
+             username:"M.Sriharsha",
+             email:"sriharshamadireddy@gmail.com",
+             password:"123456789",
              emailError:false,
              usernameError:false,
             passwordError:false
@@ -40,7 +41,7 @@ class SignUp extends Component{
     verifyEmail=(email)=>{
 
 
-        if(email.indexOf('@gmail.com')!=-1){
+        if(email.indexOf('@gmail.com')!==-1){
             return true;
         }
         return false;
@@ -70,7 +71,7 @@ class SignUp extends Component{
 
 
         // action that to be happend upon user click button
-    buttonClickHandler=(event)=>{
+    buttonClickHandler= async (event)=>{
 
             let usernameVerified, emailVerified, passwordVerified
             
@@ -78,15 +79,14 @@ class SignUp extends Component{
              emailVerified= this.verifyEmail(this.state.email);
 
 
-            if(this.props.type=="Sign Up"){
+            if(this.props.type==="Sign Up"){
            
                 usernameVerified= this.verifyUserName(this.state.username);
 
                 if(!usernameVerified){
                     this.setState({usernameError:true})
                 }
-    
-            
+
        
             }
 
@@ -108,7 +108,34 @@ class SignUp extends Component{
             alert(this.state.username)
 
 
+
+     // After Verification its time to dive deep into the code
+            
+                await this.makeRequest();
+
+
     }
+
+
+    makeRequest = async ()=>{
+
+     
+
+        try{
+
+           const result = await axios.post('http://localhost:8000/api/v1/create-account/', {
+               username: this.state.username,
+               email: this.state.email,
+               password: this.state.password,
+           })
+            console.log(result);
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+    
+     
 
   
      
