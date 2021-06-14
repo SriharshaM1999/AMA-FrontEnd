@@ -4,6 +4,8 @@ import {FcLock} from 'react-icons/fc'
 import '../ComponentCss/Sign.css'
 import Button from './Button'
 import axios from 'axios'
+import {Redirect} from 'react-router-dom';
+
 
 class SignUp extends Component{
 
@@ -16,7 +18,9 @@ class SignUp extends Component{
              password:"123456789",
              emailError:false,
              usernameError:false,
-            passwordError:false
+            passwordError:false,
+            redirectToSignIn:false,
+            redirectToMain:false,
 
         }
     }
@@ -109,15 +113,38 @@ class SignUp extends Component{
 
 
 
-     // After Verification its time to dive deep into the code
+     // After verifying the input its time to communicate with backend
             
-                await this.makeRequest();
+            if(this.props.type==="Sign Up"){
+                        await this.makeSignUpRequest();
+            }
 
+            else{
+                    await this.makeSignInRequest();
+            }
+
+    }
+
+    makeSignInRequest= async ()=>{
+
+        try{
+            const result = await axios.post('http://localhost:8000/api/v1/create-session/', {
+                email: this.state.email,
+                password: this.state.password,
+            })
+             console.log(result);
+            //  this.setState({
+            //      redirectToSignIn:true,
+            //  })
+        }
+        catch(err){
+                console.log(err);
+        }
 
     }
 
 
-    makeRequest = async ()=>{
+    makeSignUpRequest = async ()=>{
 
      
 
@@ -129,6 +156,10 @@ class SignUp extends Component{
                password: this.state.password,
            })
             console.log(result);
+            this.setState({
+                redirectToSignIn:true,
+            })
+
         }
         catch(e){
             console.log(e);
@@ -147,10 +178,18 @@ class SignUp extends Component{
 
     render() {
 
+        console.log("I am -",this.state.redirectToSignIn)
 
 
+      if(this.state.redirectToSignIn==true){
+          
+      return <Redirect to="/signin"></Redirect> 
+      }
+
+      else
         return (
             <div className="sign">
+
 
                 <FcLock style={styles.icon}/>
 
@@ -170,7 +209,7 @@ class SignUp extends Component{
                 
 
                 {/* Button */}
-                <Button name='SIGN-UP' clickHandler={this.buttonClickHandler}/>
+                <Button name={this.props.type} clickHandler={this.buttonClickHandler}/>
                 <div id="bottom-elements">
                     {this.props.forgotPassword==='true' && <h5>Forget Password</h5> }
                         <h5>Have Account...?</h5>

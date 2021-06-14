@@ -5,12 +5,12 @@
     flex-wrap: wrap;
     align-items:center;
     width:35%;
-    height:85%;
+    height:85vh;
     /* box-shadow: 10px 5px 5px 10px white; */
     background:white;
     position: relative;
     left:30%;
-    top:10%;
+    top:2%;
 
 }
 
