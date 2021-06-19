@@ -5,22 +5,25 @@ import '../ComponentCss/Sign.css'
 import Button from './Button'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {setAuthKey} from '../redux/users/action'
 
-
-class SignUp extends Component{
+class Sign extends Component{
 
     constructor(props) {
         super(props)
+        console.log("Inside Constructor of Sign", props);
     
         this.state = {
-             username:"M.Sriharsha",
-             email:"sriharshamadireddy@gmail.com",
-             password:"123456789",
+             username:"account2",
+             email:"account2@gmail.com",
+             password:"account2",
              emailError:false,
              usernameError:false,
             passwordError:false,
             redirectToSignIn:false,
             redirectToMain:false,
+            authKey:'',
 
         }
     }
@@ -70,6 +73,10 @@ class SignUp extends Component{
         }
         return false;
 
+    }
+
+    componentDidMount(){
+        console.log("In comp did mou",this.props)
     }
 
 
@@ -128,14 +135,19 @@ class SignUp extends Component{
     makeSignInRequest= async ()=>{
 
         try{
-            const result = await axios.post('http://localhost:8000/api/v1/create-session/', {
+            const result = await axios.post('http://localhost:8000/api/v1/users/create-session/', {
                 email: this.state.email,
                 password: this.state.password,
             })
-             console.log(result);
-            //  this.setState({
-            //      redirectToSignIn:true,
-            //  })
+             console.log(result.data.data.token);
+             this.setState({
+                 redirectToSignIn:false,
+                 redirectToMain:true,
+                 authKey:result.data.data.token,
+             },()=>{
+                 console.log("the auth key inside after request is ", this.state.authKey)
+                 this.props.setAuthKey(this.state.authKey);
+             })
         }
         catch(err){
                 console.log(err);
@@ -150,7 +162,7 @@ class SignUp extends Component{
 
         try{
 
-           const result = await axios.post('http://localhost:8000/api/v1/create-account/', {
+           const result = await axios.post('http://localhost:8000/api/v1/users/create-account/', {
                username: this.state.username,
                email: this.state.email,
                password: this.state.password,
@@ -166,19 +178,15 @@ class SignUp extends Component{
         }
     }
     
-     
-
-  
-     
-
-    componentDidMount() {
-        console.log("I got rendered")
-    }
-      
+         
 
     render() {
-
-        console.log("I am -",this.state.redirectToSignIn)
+         
+        console.log("the value of props in signin render ", this.props)
+    
+      if(this.state.redirectToMain==true){
+          return <Redirect to='/Main'></Redirect>
+      }  
 
 
       if(this.state.redirectToSignIn==true){
@@ -196,7 +204,7 @@ class SignUp extends Component{
                 <h4>{this.props.type}</h4>
 
                 {/* Error Handling */}
-            { this.state.usernameError && <h5> User name length should be &gt; = 8</h5> }
+             { this.state.usernameError && <h5> User name length should be &gt; = 8</h5> }
              { this.state.emailError && <h5> Use @gmail.com at the end of email section </h5> }
              { this.state.passwordError && <h5>Password length should be &gt; = 8</h5> }
 
@@ -231,6 +239,23 @@ class SignUp extends Component{
         }
 }
 
+function mapStateToProps(store){ 
+    console.log(" store inside the sign is" , store);
+    return {
+        authKey: store.authkey
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        setAuthKey:(key)=>{
+            console.log("mapDispatchtoProps got called")
+            dispatch(setAuthKey(key));
+        }
+    }
+}
 
 
-export default SignUp
+export default connect(mapStateToProps , mapDispatchToProps)(Sign)
+
+// export default SignUp
