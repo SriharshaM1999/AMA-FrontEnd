@@ -6,7 +6,7 @@ import Button from './Button'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {setAuthKey} from '../redux/users/action'
+import {setAuthKey} from '../redux/userAuthentication/action'
 
 class Sign extends Component{
 

@@ -1,0 +1,6 @@
+#middle-main{
+    display:flex;
+    height:100%;
+    flex-direction:column;
+    width:50vw;
+}

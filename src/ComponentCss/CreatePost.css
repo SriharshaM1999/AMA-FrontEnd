@@ -1,0 +1,16 @@
+#create-post{
+    height:20vh;
+    margin-top:5vh;
+    display:flex;
+    flex-direction: column;
+      
+}
+
+#create-post textarea{
+    outline:none;
+}
+
+#create-post-button{
+    background:white;
+    color:black
+}

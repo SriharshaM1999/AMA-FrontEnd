@@ -3,8 +3,6 @@ import Sign from './Components/Sign'
 import Header from './Components/Header'
 import Main from './Components/Main'
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {setAuthKey} from './redux/users/action'
 
 
 

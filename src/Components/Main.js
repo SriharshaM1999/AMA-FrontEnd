@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import LeftMain from './LeftMain';
 import MiddleMain from './MiddleMain';
 import {connect} from 'react-redux';
-import {setAuthKey} from '../redux/users/action'
+import {setAuthKey} from '../redux/userAuthentication/action'
  
 
 import '../ComponentCss/Main.css'
@@ -10,7 +10,7 @@ import '../ComponentCss/Main.css'
  class Main extends Component {
 
     componentDidMount(){
-        console.log("In componenDid mount main "+this.props);
+        console.log("In componenDid mount main ",this.props);
     }
 
     render() {
@@ -19,8 +19,7 @@ import '../ComponentCss/Main.css'
             <div class="main">
 
                 <LeftMain/>
-                <LeftMain/>
-                <LeftMain/>
+                <MiddleMain/>
 
                 
             </div>

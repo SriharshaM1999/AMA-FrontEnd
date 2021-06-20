@@ -1,0 +1,6 @@
+.user-name{
+    margin-top:2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}

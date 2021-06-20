@@ -1,10 +1,13 @@
 .Components{
-height:100vh;
+height:100%;
 width:100vw;
 }
 
 .App{
 height:100vh;
 width:100vw;
-background:#ECF3FF;
+overflow-y:scroll;
+/* background:#ECF3FF; */
+background:#12232E;
+color:white;
 }
