@@ -2,6 +2,7 @@ import axios from "axios";
 import { FETCH_POSTS,FETCH_POSTS_SUCCESS,FETCH_POSTS_FAILURE } from "./action.Type";
 
 
+
 export const fetchPosts = function(){
     return {
         type:FETCH_POSTS
@@ -49,42 +50,34 @@ export const fetching=  ()=>{
 
 }
 
-// export const fetching= (token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGNhNjk4ODk4YTE3NzJhODA2YWMwODUiLCJ1c2VybmFtZSI6ImFjY291bnQyIiwiZW1haWwiOiJhY2NvdW50MkBnbWFpbC5jb20iLCJwYXNzd29yZCI6ImFjY291bnQyIiwibm9PZlF1ZXN0aW9ucyI6MCwibm9PZkFuc3dlcnMiOjAsImNyZWF0ZWRBdCI6IjIwMjEtMDYtMTZUMjE6MTM6NDQuOTEzWiIsInVwZGF0ZWRBdCI6IjIwMjEtMDYtMTZUMjE6MTM6NDQuOTEzWiIsIl9fdiI6MCwiaWF0IjoxNjI0MTQwMzk0LCJleHAiOjE2MjQxNTAzOTR9.Yg9ATqTGxgOWiee4hsWAyjzcmq0-XfOSgGbf8cNkwvM")=>{
+export const createPost=(data, tagname, authKey) => {
 
-    
-// console.log("fetching: I got called");
-//     return (dispatch)=>{
+    console.log("in action createPost ", data, tagname, authKey);
 
-      
-//         axios.get('http://localhost:8000/api/v1/question/display-question')
-//         .then((response)=>{
-//             console.log("im in the response")
-//             console.log(response);
-//         })
-//         .catch((error)=>console.log(error));
-                    
+        return (dispatch)=>{
 
-         
-//     }
+                const bodyParameters={
+                    content:data,
+                    tagname:tagname,
+                    username:'me'
+                }
 
+                const config = {
+                    headers: { Authorization: `Bearer ${authKey}` }
+                };
+                
+                
+                axios.post('http://localhost:8000/api/v1/question/create-question',bodyParameters,config)
+                .then((response)=>{
+                    console.log(response);
+                    dispatch(fetching());
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
+        }
 
-//     // return (dispatch)=>{
+}
 
-//     //     dispatch(fetch_users);
-
-//     //      axios.get('http://localhost:8000/api/v1/users/display')
-//     //     .then((response)=>{
-//     //         console.log("Fetch users successfully called")
-//     //             console.log(response);
-//     //             dispatch(fetch_users_success(response.data.users));
-//     //     })
-//     //     .catch((errorMessage)=>{
-//     //         dispatch(fetch_users_failure(errorMessage));
-//     //     })
-        
-
-//     // }
-
-// }
 
 

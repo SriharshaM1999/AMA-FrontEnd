@@ -3,7 +3,7 @@ import LeftMain from './LeftMain';
 import MiddleMain from './MiddleMain';
 import {connect} from 'react-redux';
 import {setAuthKey} from '../redux/userAuthentication/action'
- 
+import {Redirect} from 'react-router-dom';
 
 import '../ComponentCss/Main.css'
 
@@ -14,12 +14,15 @@ import '../ComponentCss/Main.css'
     }
 
     render() {
-        console.log("props in render ", this.props)
+        console.log("props in render of main are ", this.props)
+
+
         return (
             <div class="main">
 
+
                 <LeftMain/>
-                <MiddleMain/>
+                <MiddleMain key={this.props.authKey}/>
 
                 
             </div>

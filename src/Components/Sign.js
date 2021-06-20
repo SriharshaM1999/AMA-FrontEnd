@@ -6,7 +6,7 @@ import Button from './Button'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {setAuthKey} from '../redux/userAuthentication/action'
+import {fetchUser} from '../redux/userAuthentication/action'
 
 class Sign extends Component{
 
@@ -134,24 +134,31 @@ class Sign extends Component{
 
     makeSignInRequest= async ()=>{
 
-        try{
-            const result = await axios.post('http://localhost:8000/api/v1/users/create-session/', {
-                email: this.state.email,
-                password: this.state.password,
-            })
-             console.log(result.data.data.token);
-             this.setState({
-                 redirectToSignIn:false,
-                 redirectToMain:true,
-                 authKey:result.data.data.token,
-             },()=>{
-                 console.log("the auth key inside after request is ", this.state.authKey)
-                 this.props.setAuthKey(this.state.authKey);
-             })
-        }
-        catch(err){
-                console.log(err);
-        }
+       // try{
+        //     const result = await axios.post('http://localhost:8000/api/v1/users/create-session/', {
+        //         email: this.state.email,
+        //         password: this.state.password,
+        //     })
+        //      console.log(result.data.data.token);
+        //      this.setState({
+        //          redirectToSignIn:false,
+        //          redirectToMain:true,
+        //          authKey:result.data.data.token,
+        //      },()=>{
+        //          console.log("the auth key inside after request is ", this.state.authKey)
+        //          this.props.setAuthKey(this.state.authKey);
+        //      })
+        // }
+        // catch(err){
+        //         console.log(err);
+        // }
+
+                 this.props.fetchUser(this.state.email, this.state.password);
+
+                 this.setState({
+                     authKey:this.props.authKey,
+                     redirectToMain:true
+                 })
 
     }
 
@@ -209,7 +216,7 @@ class Sign extends Component{
              { this.state.passwordError && <h5>Password length should be &gt; = 8</h5> }
 
 
-             
+              
                 {/* UserInputs */}
                 {this.props.username==='true' && <Input type='text' placeholder='User Name  *' changeHandler={this.userNameChangeHandler} name='username' value={this.state.username}/>}
                 <Input type='email' error={true} placeholder='Email Address  *' name='email' value={this.state.email} changeHandler={this.emailChangeHandler} />
@@ -240,17 +247,18 @@ class Sign extends Component{
 }
 
 function mapStateToProps(store){ 
-    console.log(" store inside the sign is" , store);
+    console.log(" store inside the sign is" , store.setAuthReducer.authKey);
     return {
         authKey: store.authkey
     }
 }
 
 function mapDispatchToProps(dispatch){
+    
     return {
-        setAuthKey:(key)=>{
+        fetchUser:(email, password)=>{
             console.log("mapDispatchtoProps got called")
-            dispatch(setAuthKey(key));
+            dispatch(fetchUser(email, password));
         }
     }
 }

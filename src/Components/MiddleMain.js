@@ -31,7 +31,7 @@ import {fetching} from '../redux/posts/action';
 
 
     render() {
-        console.log("In middle main render the props are"+ this.props)
+        console.log("In middle main render the props are", this.props)
         return (
             <div id="middle-main">
 

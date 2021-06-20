@@ -8,9 +8,14 @@
 
 #create-post textarea{
     outline:none;
+    margin-bottom:1.5vh;
 }
 
 #create-post-button{
     background:white;
     color:black
+}
+
+#tag{
+    height:10vh
 }
