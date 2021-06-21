@@ -9,11 +9,24 @@
 #create-post textarea{
     outline:none;
     margin-bottom:1.5vh;
+    min-height:45%;
+    
 }
 
 #create-post-button{
     background:white;
-    color:black
+    color:black;
+    width:100%;
+}
+
+#create-post-button:hover{
+    background:black;
+    color:white;
+
+}
+
+#create-post select{
+    height:50%;
 }
 
 #tag{

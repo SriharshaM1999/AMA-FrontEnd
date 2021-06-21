@@ -1,7 +1,7 @@
 import './App.css';
-import Sign from './Components/Sign'
+import Sign from './Components/Sign/Sign'
 import Header from './Components/Header'
-import Main from './Components/Main'
+import Main from './Components/Main/Main'
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 
 

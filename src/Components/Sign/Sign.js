@@ -1,12 +1,12 @@
 import React,{Component} from 'react'
 import Input from './Input'
 import {FcLock} from 'react-icons/fc'
-import '../ComponentCss/Sign.css'
+import '../../ComponentCss/Sign.css'
 import Button from './Button'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {fetchUser} from '../redux/userAuthentication/action'
+import {fetchUser} from '../../redux/userAuthentication/action'
 
 class Sign extends Component{
 

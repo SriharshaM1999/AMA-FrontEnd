@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PostDisplay from './PostDisplay';
 import CreatePost from './CreatePost';
 import {connect} from 'react-redux';
-import {fetching} from '../redux/posts/action';
+import {fetching} from '../../redux/posts/action';
 
  class MiddleMain extends Component {
 

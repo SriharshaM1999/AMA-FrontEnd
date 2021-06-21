@@ -2,10 +2,10 @@ import React,{Component} from 'react'
 
 import UserName from './UserName'
 
-import '../ComponentCss/LeftMain.css'
+import '../../ComponentCss/LeftMain.css'
 
 import {connect} from 'react-redux';
-import {fetching} from '../redux/users/action';
+import {fetching} from '../../redux/users/action';
 
 
  class LeftMain extends Component {
@@ -34,8 +34,8 @@ import {fetching} from '../redux/users/action';
                     <div id="user-name-heading">
 
                         <div>Active Users</div>
-                        <div>Questions Asked</div>
-                        <div>Answers Asked</div>
+             
+                        <div> Contribution</div>
 
                     </div>
 

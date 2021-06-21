@@ -1,0 +1,11 @@
+.right-main{
+    height:100%;
+    width:20vw;
+    margin-left:1vw;
+    /* background:white; */
+    font-size:1.5rem ;
+    display:flex;
+    flex-direction:column;
+    font-weight: bold;
+    margin-top:5vh;
+}

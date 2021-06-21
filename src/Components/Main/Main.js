@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import LeftMain from './LeftMain';
 import MiddleMain from './MiddleMain';
+import RightMain from './RightMain';
 import {connect} from 'react-redux';
-import {setAuthKey} from '../redux/userAuthentication/action'
+import {setAuthKey} from '../../redux/userAuthentication/action'
 import {Redirect} from 'react-router-dom';
 
-import '../ComponentCss/Main.css'
+import '../../ComponentCss/Main.css'
 
  class Main extends Component {
 
@@ -23,7 +24,7 @@ import '../ComponentCss/Main.css'
 
                 <LeftMain/>
                 <MiddleMain key={this.props.authKey}/>
-
+                <RightMain/>
                 
             </div>
         )
@@ -39,6 +40,7 @@ const mapStateToProps =(state)=>{
     }
 }
 
+// no use of the below function
 const mapDispatchToProps = (dispatch)=>{
     return {
         setAuthKey:(key)=>{

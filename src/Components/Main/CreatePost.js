@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-import '../ComponentCss/CreatePost.css';
-import {createPost} from '../redux/posts/action';
+import '../../ComponentCss/CreatePost.css';
+import {createPost} from '../../redux/posts/action';
  class CreatePost extends Component {
 
     constructor(props) {
