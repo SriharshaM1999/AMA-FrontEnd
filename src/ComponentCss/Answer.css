@@ -1,0 +1,37 @@
+.answer{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    border:1px solid black;
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+    border-bottom-left-radius:25px;
+    border-bottom-right-radius:25px;
+    width:80%;
+    height:20%;
+    padding:3vh;
+    margin-top:5vh;
+    margin-bottom:3vh;
+    background-color:#ECF3FF;
+    text-overflow: clip;
+    
+}
+
+.answer small{
+    padding-left:5vw;
+    
+
+}
+
+.answer small:first-child{
+    font-weight:700;
+    font-size:1rem;
+    
+    
+}
+
+.answer small:last-child{
+    font-weight:500;
+    font-size:1.2rem;
+    
+}

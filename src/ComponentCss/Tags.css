@@ -1,0 +1,18 @@
+.tag-element{
+    color:white;
+    margin-bottom:5vh;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    margin-top:2vh;
+    color:gray;
+
+}
+
+.tag-element-left{
+    padding-left:2vw;
+}
+
+.tag-element-right{
+    padding-right:2vw;
+}
