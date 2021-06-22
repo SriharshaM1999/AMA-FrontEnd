@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../ComponentCss/comment.css';
 import {connect} from 'react-redux';
 import {createComment} from '../../redux/comments/action';
+import cookie from 'react-cookies';
 
 class AnswerSection extends Component {
 
@@ -54,7 +55,7 @@ class AnswerSection extends Component {
 
 const mapStateToProps = (state)=>{
     return {
-            authKey:state.setAuthReducer.authKey
+            authKey:cookie.load('userId')
     }
 }
 

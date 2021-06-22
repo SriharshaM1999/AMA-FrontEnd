@@ -19,7 +19,12 @@ function DisplayAnswer(props) {
     else{
         console.log("props.answers.length is", props.answers.length);
         if(props.answers.length==0){
-            return <p>No Answers.....!</p>
+            return( 
+                <div>
+                    <h4>No Answers Yet..!</h4>
+                    <button onClick={clickHandler} className="display-comments-button"> Roll Out...!</button>
+                </div>    
+            )
         }
         else{
             return (
@@ -29,7 +34,7 @@ function DisplayAnswer(props) {
                         return <Answer answer={answer} key={index}/>
                     })}
 
-
+                    <button onClick={clickHandler} className="display-comments-button"> Roll Out...!</button>
 
                 </div>
                     

@@ -5,6 +5,8 @@ import RightMain from './RightMain';
 import {connect} from 'react-redux';
 import {setAuthKey} from '../../redux/userAuthentication/action'
 import {Redirect} from 'react-router-dom';
+import Unauthorized from './Unauthorized';
+import cookie from 'react-cookies';
 
 import '../../ComponentCss/Main.css'
 
@@ -16,14 +18,21 @@ import '../../ComponentCss/Main.css'
 
     render() {
         console.log("props in render of main are ", this.props)
+        console.log("cookies in render of main are", cookie.load('userId'));
 
+        const authKey = cookie.load('userId');
+
+        if(authKey==undefined || authKey==''){
+            return <Unauthorized/>
+        }
 
         return (
+
             <div class="main">
 
 
                 <LeftMain/>
-                <MiddleMain key={this.props.authKey}/>
+                <MiddleMain key={authKey}/>
                 <RightMain/>
                 
             </div>
@@ -36,7 +45,7 @@ import '../../ComponentCss/Main.css'
 const mapStateToProps =(state)=>{ 
     console.log('state inside the Main ', state);
     return {
-        authKey: state.authKey
+        authKey: cookie.load('userId')
     }
 }
 

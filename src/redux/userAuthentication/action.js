@@ -1,5 +1,7 @@
 import {SET_AUTH_KEY} from './actionType';
-import axios from 'axios'
+import axios from 'axios';
+import cookie from 'react-cookies'
+ 
 
 export const setAuthKey=(key)=>{
         return {
@@ -17,7 +19,10 @@ export const fetchUser= (email,password)=>{
                 password:password,
             })
             .then((response)=>{
-                console.log(response);
+                console.log("the response" ,response);
+                console.log("seted in cookies is: ", response.data.data.token)
+                cookie.save('userId', response.data.data.token , { path: '/' })
+
                 dispatch(setAuthKey(response.data.data.token));    
             })
             .catch((error)=>{

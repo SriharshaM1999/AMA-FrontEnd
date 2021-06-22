@@ -7,6 +7,7 @@ import axios from 'axios'
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchUser} from '../../redux/userAuthentication/action'
+import cookie from 'react-cookies'
 
 class Sign extends Component{
 
@@ -128,6 +129,7 @@ class Sign extends Component{
 
             else{
                     await this.makeSignInRequest();
+
             }
 
     }
@@ -153,14 +155,20 @@ class Sign extends Component{
         //         console.log(err);
         // }
 
-                 this.props.fetchUser(this.state.email, this.state.password);
+                 await this.props.fetchUser(this.state.email, this.state.password);
+                 
 
                  this.setState({
                      authKey:this.props.authKey,
-                     redirectToMain:true
+                     redirectToMain:true,
+                 },()=>{
+
                  })
 
     }
+
+  
+    
 
 
     makeSignUpRequest = async ()=>{
@@ -169,7 +177,7 @@ class Sign extends Component{
 
         try{
 
-           const result = await axios.post('http://localhost:8000/api/v1/users/create-account/', {
+            const result = await axios.post('http://localhost:8000/api/v1/users/create-account/', {
                username: this.state.username,
                email: this.state.email,
                password: this.state.password,

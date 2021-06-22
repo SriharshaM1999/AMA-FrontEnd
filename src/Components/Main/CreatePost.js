@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import '../../ComponentCss/CreatePost.css';
 import {createPost} from '../../redux/posts/action';
+import cookie from 'react-cookies';
+
  class CreatePost extends Component {
 
     constructor(props) {
@@ -74,9 +76,9 @@ import {createPost} from '../../redux/posts/action';
 
 // Here no use of mapStateToProps
 const mapStateToProps =(state)=>{
-    console.log(state.setAuthReducer.authKey,"is this")
+    console.log(cookie.load('userId'),"is this")
     return {
-        authKey:state.setAuthReducer.authKey
+        authKey:cookie.load('userId')
     }
 }
 
