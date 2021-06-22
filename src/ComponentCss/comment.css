@@ -1,0 +1,27 @@
+.comment{
+    height:100%;
+}
+
+.comment-input{
+    width:20vw;
+    height:6vh;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    outline:none;
+    padding-left: 2vw;
+}
+
+.comment-button{
+    height:6vh;
+    width:12vw;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    outline:none;
+    margin-left:2vw;
+    padding-bottom:1vh;
+    
+}

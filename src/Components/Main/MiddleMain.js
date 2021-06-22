@@ -41,6 +41,8 @@ import {fetching} from '../../redux/posts/action';
                     return <PostDisplay post={post} key={index}/> 
                 })}
 
+             
+
                 {/* {this.props.posts.map((post,index)=>{
                     return <PostDisplay post={post} key={index}/> 
                 })} */}

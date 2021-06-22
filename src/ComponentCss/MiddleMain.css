@@ -2,5 +2,7 @@
     display:flex;
     height:100%;
     flex-direction:column;
-    width:50vw;
+    width:40vw;
+    margin-left:5vw;
+    margin-right:5vw;
 }

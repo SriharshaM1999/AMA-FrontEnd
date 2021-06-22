@@ -24,7 +24,7 @@ export const fetch_users_failure = function(message){
 
 
 // code for redux thunk;
-export const fetching=  ()=>{
+export const fetchingUsers=  ()=>{
 
     return (dispatch)=>{
 

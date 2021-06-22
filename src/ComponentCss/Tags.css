@@ -1,16 +1,11 @@
 .tag-element{
     color:white;
     margin-bottom:5vh;
-    border:1px solid white;
-    text-align:center;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
     display:flex;
     flex-direction:row;
     justify-content:space-between;
     margin-top:2vh;
+    color:gray;
 
 }
 

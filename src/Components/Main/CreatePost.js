@@ -33,10 +33,10 @@ import {createPost} from '../../redux/posts/action';
                 })
         }
 
-        submitPost(){
+       async submitPost(){
             console.log("In submit post", this.state.authKey)
             if(this.state.post<=1) return ;
-            this.props.createPost(this.state.post, this.state.tag,this.state.authKey);
+           await this.props.createPost(this.state.post, this.state.tag,this.state.authKey);
             
             this.setState({
                 post:'',
@@ -54,7 +54,7 @@ import {createPost} from '../../redux/posts/action';
             <div id="create-post">
 
                 
-                <textarea rows= '8' cols='60' name='post'onChange={this.keychangeHandler}></textarea>
+                <textarea placeholder="&nbsp; Post your Question..." rows= '4' cols='60' name='post'onChange={this.keychangeHandler}></textarea>
 
                 <select id='tag' name='tag' onChange={this.tagChangeHandler}>
                     <option value='Maths'  >Maths</option>

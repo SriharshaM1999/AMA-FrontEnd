@@ -1,7 +1,10 @@
 import React from 'react'
+import AnswerSection from './AnswerSection'
 import '../../ComponentCss/postDisplay.css'
+import DisplayComment from './DisplayAnswers';
 
 function PostDisplay(props) {
+    console.log("in post display the props are:" , props);
     return (
         <div className="post-display">
 
@@ -30,6 +33,19 @@ function PostDisplay(props) {
 
                     </div>
             </div>
+
+
+                <div className="post-display-middle">
+
+                    <AnswerSection postId={props.post._id}/> 
+
+                </div>
+
+                <div className="post-display-bottom">
+
+                    <DisplayComment answers={props.post.answer}/> 
+
+                </div>
             
         </div>
     )

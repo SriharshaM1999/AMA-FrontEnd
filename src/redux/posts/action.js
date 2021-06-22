@@ -1,6 +1,7 @@
 import axios from "axios";
 import { FETCH_POSTS,FETCH_POSTS_SUCCESS,FETCH_POSTS_FAILURE } from "./action.Type";
 import {fetchingTags} from '../tags/action';
+import {fetchingUsers} from '../users/action'
 
 
 export const fetchPosts = function(){
@@ -39,8 +40,7 @@ export const fetching=  ()=>{
                 console.log(response.data);
                 console.log(response.data.Questions);
                 dispatch(fetchPostsSuccess(response.data.Questions));
-                dispatch(fetchingTags());
-                dispatch(fetching());
+                
         })
         .catch((errorMessage)=>{
             dispatch(fetchPostsFailure(errorMessage));
@@ -73,6 +73,8 @@ export const createPost=(data, tagname, authKey) => {
                 .then((response)=>{
                     console.log(response);
                     dispatch(fetching());
+                    dispatch(fetchingTags());
+                    dispatch(fetchingUsers());
                 })
                 .catch((err)=>{
                     console.log(err);

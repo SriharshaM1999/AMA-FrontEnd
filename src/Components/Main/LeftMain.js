@@ -5,7 +5,7 @@ import UserName from './UserName'
 import '../../ComponentCss/LeftMain.css'
 
 import {connect} from 'react-redux';
-import {fetching} from '../../redux/users/action';
+import {fetchingUsers} from '../../redux/users/action';
 
 
  class LeftMain extends Component {
@@ -19,7 +19,7 @@ import {fetching} from '../../redux/users/action';
     }
 
     componentDidMount(){
-        this.props.fetching();
+        this.props.fetchingUsers();
         console.log("component did mount in left Main : ", this.props.users)
     }
 
@@ -64,8 +64,8 @@ const mapStateToProps =(state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
     return {
-        fetching:(key)=>{
-            dispatch(fetching());
+        fetchingUsers:(key)=>{
+            dispatch(fetchingUsers());
         }
     }
 }

@@ -2,11 +2,16 @@
     width:100vw;
     height:10vh;
     /* background-color:#1877F2; */
-    background:	#007CC7;
+    background:	#0a2342;
     display:flex;
     flex-direction:row;
+    position:fixed;
+    
     justify-content:space-between;
     color:white;
+    -webkit-box-shadow: 0 8px 6px -6px #0a2342;
+    -moz-box-shadow: 0 8px 6px -6px #0a2342;
+         box-shadow: 0 8px 6px -6px #0a2342;
 }
 
 

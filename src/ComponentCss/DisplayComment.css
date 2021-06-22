@@ -1,0 +1,18 @@
+.display-comments-button{
+    width: 80%;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    outline:none;
+    border:0;
+}
+
+#answers-list{
+    width:100%;
+    min-height:10vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+
+}
