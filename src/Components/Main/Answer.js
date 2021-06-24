@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../ComponentCss/Answer.css'
 
-
+ 
 function Answer(props) {
 
     console.log("In answer js ", props);

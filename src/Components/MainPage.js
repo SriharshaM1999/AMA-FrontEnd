@@ -1,10 +1,10 @@
 import React,{useEffect, useState} from 'react';
-import Header from  '../Header';
-import '../../ComponentCss/Unauthorized.css';
+import Header from  './Header';
+import '../ComponentCss/Unauthorized.css';
 import cookie from 'react-cookies';
 import Typical from 'react-typical';
 
-function Unauthorized() {
+function MainPage() {
 
     let [string,setString] = useState('');
 
@@ -20,7 +20,7 @@ function Unauthorized() {
             <div id="unauthorized">
             <Typical
             steps={['want',3000,'to grow yourself!', 3000,'by gaininig and sharing knowledge',1000]}
-            loop={1}
+            loop={2}
             wrapper="p"
         />
 
@@ -45,4 +45,4 @@ function Unauthorized() {
     )
 }
 
-export default Unauthorized
+export default MainPage
