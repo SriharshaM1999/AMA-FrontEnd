@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route, Switch,Redirect,Link} from 'react-router
 import Unauthorized from './Components/Main/Unauthorized';
 import MainPage from './Components/MainPage';
 import cookie from 'react-cookies';
+import React, {useEffect} from 'react'
 
 function App() {
 
@@ -13,11 +14,8 @@ function App() {
 
   const authKey = cookie.load('userId');
 
-  if(authKey==''){
-      return <div>
-            <MainPage/>
-      </div> 
-  }
+ 
+
 
 
 
@@ -32,11 +30,11 @@ function App() {
         <div className="App">
 
 
-        <Header></Header>
+        {authKey == undefined && <Header flag = {false}></Header>}
 
         { authKey==undefined && <Redirect to='AMA'/>}
           
-                
+        {authKey!=undefined && <Header flag = {true}></Header>}         
          
               
         <Switch>

@@ -40,3 +40,17 @@ a span{
  a span:hover{
      text-decoration:underline;
  }
+
+
+ #header-right p{
+     display:inline-block;
+     margin-top:1vh;
+     font-size: 1.3rem;
+     margin-right:2vw;
+     /* color:black; */
+ }
+ #header-right span{
+    display:inline-block;
+    font-size: 1.2rem;
+    /* color:black; */
+}

@@ -14,8 +14,13 @@
     margin-bottom:3vh;
     background-color:#ECF3FF;
     overflow-x: scroll;
+    /* scrollbar-width: none; */
+
     
 }
+::-webkit-scrollbar { 
+    display: none; 
+    }
 
 .answer small{
     padding-left:5vw;

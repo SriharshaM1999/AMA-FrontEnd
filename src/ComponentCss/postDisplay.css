@@ -24,7 +24,7 @@
 .post-display-top{
     display:flex;
     flex-direction:row;
-    /* justify-content:space-around; */
+    justify-content:space-around;
 }
 
 .post-display-top-left{
@@ -78,3 +78,8 @@
     width:100%;
 
 }
+
+.post-display-top-right button{
+        width:7vw;
+        padding:1vh;
+}   
