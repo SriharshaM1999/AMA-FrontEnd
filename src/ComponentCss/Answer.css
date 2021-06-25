@@ -40,3 +40,12 @@
     font-size:1.2rem;
     
 }
+
+.answer button{
+    width:2vw;
+    color:red;
+    background-color:#ECF3FF;
+    border:0;
+    outline:0
+
+}

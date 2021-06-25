@@ -45,3 +45,31 @@ export const createComment=(content, postId, authKey) => {
         }
 
 }
+
+export const deleteComment = (commentId, postId, authKey)=>{
+    return (dispatch)=>{
+
+        const bodyParameters={
+            answerId:commentId,
+            postId:postId,
+            
+        }
+
+        const config = {
+            headers: { Authorization: `Bearer ${authKey}` }
+        };
+        
+        
+
+        axios.post('http://localhost:8000/api/v1/answer/delete-answer',bodyParameters,config)
+        .then((response)=>{
+            console.log(response);
+            dispatch(fetching());
+
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+
+    }
+}
