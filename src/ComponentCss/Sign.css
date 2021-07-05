@@ -1,16 +1,39 @@
+.sign-entire{
+    width:100vw;
+    height:100vh;
+  
+}
+
 .sign{
+    /* z-index:99; */
     display:flex;
     flex-direction:column;
     justify-content:center;
     flex-wrap: wrap;
     align-items:center;
-    width:35%;
+    width:33%;
     height:85vh;
     /* box-shadow: 10px 5px 5px 10px white; */
     background:white;
     position: relative;
-    left:30%;
+    left:50%;
     top:12%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+}
+
+.beautify{
+    position:fixed;
+    background-color: none;
+/* background-image: linear-gradient(315deg, #f9c5d1 0%, #9795ef 74%); */
+
+    top:25%;
+    width:45%;
+    z-index:5;
+    height:50vh;
 
 }
 
@@ -29,6 +52,7 @@ h4{
     width:30%;
     margin-top:2%;
     color:rgb(18, 90, 197);
+    z-index:1
 }
 
 h5{
@@ -41,5 +65,14 @@ h5{
     .sign{
         width:100%;
         left:0%;
+        top:11%;
+        height:100%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .beautify{
+        display:none;
     }
 }

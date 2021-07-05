@@ -8,14 +8,19 @@
     border-bottom-left-radius:25px;
     border-bottom-right-radius:25px;
     width:80%;
-    height:20%;
+    min-height:20%;
     padding:3vh;
     margin-top:5vh;
     margin-bottom:3vh;
     background-color:#ECF3FF;
-    text-overflow: clip;
+    overflow-x: scroll;
+    /* scrollbar-width: none; */
+
     
 }
+::-webkit-scrollbar { 
+    display: none; 
+    }
 
 .answer small{
     padding-left:5vw;
@@ -34,4 +39,13 @@
     font-weight:500;
     font-size:1.2rem;
     
+}
+
+.answer button{
+    width:2vw;
+    color:red;
+    background-color:#ECF3FF;
+    border:0;
+    outline:0
+
 }

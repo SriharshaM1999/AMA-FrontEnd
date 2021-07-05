@@ -22,6 +22,7 @@ export const fetchUser= (email,password)=>{
                 console.log("the response" ,response);
                 console.log("seted in cookies is: ", response.data.data.token)
                 cookie.save('userId', response.data.data.token , { path: '/' })
+                cookie.save('user',response.data.data.username, {path: '/'})
 
                 dispatch(setAuthKey(response.data.data.token));    
             })

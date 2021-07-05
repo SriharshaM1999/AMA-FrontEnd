@@ -8,6 +8,8 @@ height:100vh;
 width:100vw;
 overflow-y:scroll;
 /* background:#ECF3FF; */
-background:#ECF3FF;
+background-color: #f9c5d1;
+background-image: linear-gradient(315deg, #f9c5d1 0%, #9795ef 74%);
+/* background: linear-gradient(39.97deg, #970ceeef 0.79%, white 62.29%); */
 color:rgb(255, 255, 255);
 }

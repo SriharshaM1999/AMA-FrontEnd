@@ -7,7 +7,8 @@ import axios from 'axios'
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchUser} from '../../redux/userAuthentication/action'
-import cookie from 'react-cookies'
+import cookie from 'react-cookies';
+import Icon from '../../assets/icon.svg';
 
 class Sign extends Component{
 
@@ -211,10 +212,20 @@ class Sign extends Component{
 
       else
         return (
+
+            <div className='sign-entire'>
+
+                    <img
+                        src={Icon}
+                        alt='background'
+                        className='beautify'
+                    />
+
+
             <div className="sign">
 
-
-                <FcLock style={styles.icon}/>
+                   
+                {/* <FcLock style={styles.icon}/> */}
 
                 <h4>{this.props.type}</h4>
 
@@ -233,12 +244,17 @@ class Sign extends Component{
 
                 {/* Button */}
                 <Button name={this.props.type} clickHandler={this.buttonClickHandler}/>
-                <div id="bottom-elements">
+
+
+                 {/* Hey roll in the next update  */}
+                {/* <div id="bottom-elements">
                     {this.props.forgotPassword==='true' && <h5>Forget Password</h5> }
                         <h5>Have Account...?</h5>
-                </div>
+                </div> */}
 
             </div>
+
+        </div>
 
         )   
 

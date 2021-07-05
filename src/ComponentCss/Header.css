@@ -2,7 +2,8 @@
     width:100vw;
     height:10vh;
     /* background-color:#1877F2; */
-    background:	#0a2342;
+    /* background:	#0a2342; */ /* previous colour*/
+    background-color: #970ceeef;
     display:flex;
     flex-direction:row;
     position:fixed;
@@ -40,3 +41,17 @@ a span{
  a span:hover{
      text-decoration:underline;
  }
+
+
+ #header-right p{
+     display:inline-block;
+     margin-top:1vh;
+     font-size: 1.3rem;
+     margin-right:2vw;
+     /* color:black; */
+ }
+ #header-right span{
+    display:inline-block;
+    font-size: 1.2rem;
+    /* color:black; */
+}

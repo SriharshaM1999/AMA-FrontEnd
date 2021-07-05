@@ -84,4 +84,34 @@ export const createPost=(data, tagname, authKey) => {
 }
 
 
+export const deletePost=(postId, tagname, authKey)=>{
+
+    console.log("delete post got called", postId, tagname, authKey);
+
+ 
+
+        return (dispatch)=>{
+
+            const config = {
+                headers: { Authorization: `Bearer ${authKey}` }
+            };
+
+            const bodyParameters={
+                id:postId,  
+                tagname:tagname 
+            }
+
+            axios.post('http://localhost:8000/api/v1/question/delete-question',bodyParameters,config)
+            .then((response)=>{
+                dispatch(fetching());
+                dispatch(fetchingTags());
+                dispatch(fetchingUsers());
+            })
+
+
+        }
+
+
+}
+
 
