@@ -14,11 +14,9 @@
     border-bottom-right-radius: 25px;
     -moz-box-shadow:    3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow:         3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px rgb(248, 192, 239);
     padding-top:3vh;
     padding-bottom:3vh;
-
-
 } 
 
 .post-display-top{

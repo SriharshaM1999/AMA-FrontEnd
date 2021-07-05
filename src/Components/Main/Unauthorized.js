@@ -6,13 +6,7 @@ import Typical from 'react-typical';
 
 function Unauthorized() {
 
-    let [string,setString] = useState('');
-
-    useEffect(() =>{   
-         cookie.remove('userId', { path: '/' })
-
-        },[])
-
+ 
     return (
 
         <div id="logout-container">
@@ -30,7 +24,7 @@ function Unauthorized() {
 
             <div id ="about">
                 <h6>About AMA</h6>
-                <small>AMA's mission is to share and grow the world’s knowledge. A vast amount of the knowledge that would be valuable to many people is currently only available to a few — either locked in people’s heads, or only accessible to select groups. We want to connect the people who have knowledge to the people who need it, to bring together people with different perspectives so they can understand each other better, and to empower everyone to share their knowledge for the benefit of the rest of the world.</small>
+             <small>AMA (Ask Me Anything) is a platform where users can gain knowledge through sharing and seeking knowledge. This platform enables the user to post their doubts so that other knowledgeable people who are well versant of the subject relevant can reply answers/ solutions</small>
             </div>
 
             <div id="creator">

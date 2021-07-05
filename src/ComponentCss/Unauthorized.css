@@ -1,8 +1,10 @@
 #logout-container{
     width:100vw;
     min-height:100vh;
-    background:black;
-    color:white;
+    /* background:white; */
+    background: linear-gradient(39.97deg, #970ceeef 0.79%, white 69.29%);
+
+    color:black;
 }
 
 
@@ -19,13 +21,13 @@
 
 h6, p, h1{
     margin-top:5vh;
-    color:white;
+    color:black;
 }
 
 #about{
     width:50vw;
     margin-left:25vw;
-    font-weigth:bold;
+    font-weight:bold;
     font-size:2rem;
 }
 

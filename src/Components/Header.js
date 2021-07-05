@@ -1,35 +1,52 @@
-import React,{useEffect, useState} from 'react'
+import React,{Component} from 'react'
 import { Link } from 'react-router-dom'
 import '../ComponentCss/Header.css'
 import cookie from 'react-cookies';
 import Unauthorized from './Main/Unauthorized';
+import {connect} from 'react-redux';
 
 
+class Header extends Component{
 
-function Header(props) {
+    constructor(props) {
+        super(props);
 
-    console.log("props.in header are", props)
+         this.state={
+             flag:props.flag,
+             authKey:props.authKey
+         }
+             
+         
 
 
-
-     const logout=()=>{
-        cookie.remove('userId', { path: '/' })
-        cookie.remove('user',{ path: '/' })
-        setAuth('');
     }
 
-    const authKey = cookie.load('userId');
+
+
+    logout=()=>{
+        cookie.remove('userId', { path: '/' })
+        cookie.remove('user',{ path: '/' })
+        this.setState({
+            flag:!this.state.flag,
+        },()=>{console.log("I got called in logout", this.state.authKey, this.state.flag)})
+  
+    }
+
+   
+
+    render(){
+    const authKey = this.props.authKey
     const username = cookie.load('user');
 
-    const [Auth,setAuth] = useState(authKey);
+    
    
-    useEffect(()=>{
-        console.log("IN header auth", Auth)
-    },[Auth])
+   console.log("props is header are", this.props)
 
 
-    if(props.flag){
+    if(username){
         return(
+
+
             <div id="header">
             
 
@@ -46,7 +63,7 @@ function Header(props) {
             <p id="header-username">{username}</p>
 
             <Link to="/logout">
-                <span onClick={logout}>Sign Out</span>
+                <span onClick={this.logout}>Sign Out</span>
             </Link>
 
 
@@ -92,6 +109,16 @@ function Header(props) {
 
     }
 }
+}
 
-
-export default Header
+function mapStateToProps(state){ 
+    console.log("msp in app.js :" , state);
+    return {
+        authKey: cookie.load('userId'),
+    }
+  }
+  
+  
+  
+  
+   export default connect(mapStateToProps,null)(Header)

@@ -6,13 +6,17 @@ import {BrowserRouter as Router, Route, Switch,Redirect,Link} from 'react-router
 import Unauthorized from './Components/Main/Unauthorized';
 import MainPage from './Components/MainPage';
 import cookie from 'react-cookies';
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
+import {connect} from 'react-redux'
 
-function App() {
+function App(props) {
 
 
+  const authKey = props.authKey;
 
-  const authKey = cookie.load('userId');
+  useEffect(() => {
+   
+  }, [authKey])
 
  
 
@@ -29,12 +33,12 @@ function App() {
       
         <div className="App">
 
-
         {authKey == undefined && <Header flag = {false}></Header>}
+        {authKey!=undefined && <Header flag = {true}></Header>}      
 
         { authKey==undefined && <Redirect to='AMA'/>}
           
-        {authKey!=undefined && <Header flag = {true}></Header>}         
+       
          
               
         <Switch>
@@ -58,22 +62,16 @@ function App() {
 }
 
 
-// function mapStateToProps(state){ 
-//   console.log("msp :" , state);
-//   return {
-//       authKey: state.authKey
-//   }
-// }
-
-// function mapDispatchToProps(dispatch){
-//   return {
-//       setAuthKey:(key)=>{
-//           dispatch(setAuthKey(key));
-//       }
-//   }
-// }
+function mapStateToProps(state){ 
+  console.log("msp in app.js :" , state);
+  return {
+      authKey: cookie.load('userId'),
+  }
+}
 
 
-// export default connect(mapStateToProps,mapDispatchToProps)(App)
 
- export default App;
+
+ export default connect(mapStateToProps,null)(App)
+
+ //export default App;
