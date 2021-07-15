@@ -29,24 +29,26 @@ class AnswerSection extends Component {
 
    
 
-    clickHandler=()=>{
-        console.log(this.state.comment);
+    clickHandler=(event)=>{
+
+        console.log(event);
         const comment = this.state.comment;
-        const postId = this.state.postId;
+        const postId = event.target.value
+        console.log('postId in answersection is', postId)
         const authKey = this.state.authKey;
 
-        console.log("click Handler in comment " ,this.state);
+        console.log("click Handler in answer section " ,this.state);
 
         this.props.createComment(comment,postId,authKey);
     }
 
     render() {
-        console.log("this comment belongs to post Id ", this.state.postId)
+        console.log("answer section:: this comment belongs to post Id ", this.state.postId)
         return (
             <div className="comment">
 
-               <textarea onChange={this.changeComment} placeholder="Post your answer..." rows="4" cols="50"  className="comment-input" type="text" name="comment"></textarea>
-               <button className="comment-button" onClick={this.clickHandler}>Submit...!</button>
+               <textarea id={this.props.postId} onChange={this.changeComment} placeholder="Post your answer..." rows="4" cols="50"  className="comment-input" type="text" name="comment"></textarea>
+               <button value={this.props.postId} className="comment-button" onClick={this.clickHandler}>Submit...!</button>
                 
             </div>
         )

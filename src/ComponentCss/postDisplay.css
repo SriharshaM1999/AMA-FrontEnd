@@ -48,6 +48,7 @@
     display:flex;
     flex-direction:column;
     justify-content: flex-start;
+    max-width:350px;
 }
 
 .post-display-top-middle-upper h5{
@@ -81,3 +82,24 @@
         width:7vw;
         padding:1vh;
 }   
+
+@media only screen and (max-width:600px){
+
+    .post-display-top-right button{
+        width:100%;
+    }
+
+    div.comment{
+        margin:2vh 0;
+    }
+
+    div.comment textarea{
+        width:40%;
+        margin:0 1vh;
+    }
+
+    div.comment button{
+        width:40%;
+        margin:0;
+    }
+}

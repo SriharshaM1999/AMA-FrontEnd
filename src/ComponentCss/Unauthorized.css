@@ -2,8 +2,8 @@
     width:100vw;
     min-height:100vh;
     /* background:white; */
-    background: linear-gradient(39.97deg, #970ceeef 0.79%, white 69.29%);
-
+    /* background: linear-gradient(39.97deg, #970ceeef 0.79%, white 69.29%); */
+    background-color: #EFF4ED;
     color:black;
 }
 

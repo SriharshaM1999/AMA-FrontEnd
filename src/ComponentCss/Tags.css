@@ -16,3 +16,16 @@
 .tag-element-right{
     padding-right:2vw;
 }
+
+@media only screen and (max-width:600px){
+
+    .tag-element{
+
+       display:none;
+
+    }
+
+
+
+
+}
