@@ -56,3 +56,17 @@
 #tag{
     height:10vh
 }
+
+
+@media only screen and (max-width:600px){
+
+    #create-post{
+
+        width:100vw;
+
+    }
+
+
+
+
+}

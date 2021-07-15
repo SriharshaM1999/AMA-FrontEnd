@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 import {fetchUser} from '../../redux/userAuthentication/action'
 import cookie from 'react-cookies';
 import Icon from '../../assets/icon.svg';
+import GoogleLogin from 'react-google-login';
 
 class Sign extends Component{
 
@@ -43,6 +44,8 @@ class Sign extends Component{
     passwordChangeHandler=(value)=>{
         this.setState({password:value})
     }
+
+  
 
 
     // Handling the errors in the input sections provided by the user 
@@ -193,6 +196,40 @@ class Sign extends Component{
             console.log(e);
         }
     }
+
+    responseGoogle = (response) => {
+        console.log(response);
+
+        axios.post('http://localhost:8000/api/v1/users/google-login/', {
+            token: response.tokenObj.id_token,
+           
+        })
+        .then((response)=>{
+            console.log("the response" ,response);
+            console.log("seeted in cookies is: ", response.data.data.token)
+            cookie.save('userId', response.data.data.token , { path: '/' })
+            cookie.save('user',response.data.data.username, {path: '/'})
+            this.setState({
+                authKey:this.props.authKey,
+                redirectToMain:true,
+            },()=>{
+
+            })
+              
+        })
+        .catch((error)=>{
+            console.log("The error message is: ")
+            console.log(error);
+        })
+        
+
+
+
+      }
+
+      responseFailure = (error) => {
+          console.log(error)
+      }
     
          
 
@@ -244,7 +281,15 @@ class Sign extends Component{
 
                 {/* Button */}
                 <Button name={this.props.type} clickHandler={this.buttonClickHandler}/>
-
+                
+                
+                <GoogleLogin
+                    clientId="394103427165-8t7tv3gk5ne5birefeat95nocu0h40ha.apps.googleusercontent.com"
+                    buttonText="Login"
+                    onSuccess={this.responseGoogle}
+                    onFailure={this.responseFailure}
+                    cookiePolicy={'single_host_origin'}
+                />,
 
                  {/* Hey roll in the next update  */}
                 {/* <div id="bottom-elements">
@@ -284,6 +329,8 @@ function mapDispatchToProps(dispatch){
             console.log("mapDispatchtoProps got called")
             dispatch(fetchUser(email, password));
         }
+
+
     }
 }
 

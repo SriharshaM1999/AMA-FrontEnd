@@ -10,3 +10,9 @@
     margin-top:5vh;
     color:black;
 }
+
+@media only screen and (max-width:600px){
+    .right-main{
+        display:none;
+    }
+}
