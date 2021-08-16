@@ -12,11 +12,37 @@ import '../../ComponentCss/Main.css'
 
  class Main extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state={
+            logout:false,
+        }
+
+        this.logout = this.logout.bind(this);
+
+    }
+
     componentDidMount(){
         console.log("In componenDid mount main ",this.props);
     }
 
+    logout=async ()=>{
+        await cookie.remove('userId', { path: '/' })
+        await cookie.remove('user',{ path: '/' })
+       
+        this.setState({
+            logout:true,
+        },()=>{console.log("I got called in logout")})
+  
+    }
+
     render() {
+
+        if(this.state.logout==true){
+            return <Redirect to="/logout"></Redirect>
+        }
+
         console.log("props in render of main are ", this.props)
         console.log("cookies in render of main are", cookie.load('userId'));
 
@@ -30,10 +56,10 @@ import '../../ComponentCss/Main.css'
 
             <div class="main">
 
-
-                <LeftMain/>
+             <button id='logout-button' onClick={this.logout}>Logout</button>
+                {/* <LeftMain/> */}
                 <MiddleMain key={authKey}/>
-                <RightMain/>
+                {/* <RightMain/> */}
                 
             </div>
         )

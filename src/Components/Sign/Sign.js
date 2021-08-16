@@ -26,9 +26,15 @@ class Sign extends Component{
             passwordError:false,
             redirectToSignIn:false,
             redirectToMain:false,
+            redirectToSignUp:false,
             authKey:'',
+            
 
         }
+
+        this.moveToSignIn = this.moveToSignIn.bind(this);
+        this.moveToSignUp= this.moveToSignUp.bind(this);
+
     }
 
     emailChangeHandler=(value)=>{
@@ -231,6 +237,19 @@ class Sign extends Component{
           console.log(error)
       }
     
+      moveToSignIn = ()=>{
+          console.log("ji got claaed too")
+          this.setState({
+              redirectToSignIn:true
+          })
+      }
+
+      moveToSignUp =()=>{
+          console.log('i got called')
+          this.setState({
+              redirectToSignUp:true
+          })
+      }
          
 
     render() {
@@ -244,8 +263,13 @@ class Sign extends Component{
 
       if(this.state.redirectToSignIn==true){
           
-      return <Redirect to="/signin"></Redirect> 
+            return <Redirect to="/signin"></Redirect> 
       }
+
+      if(this.state.redirectToSignUp==true){
+          
+        return <Redirect to="/signup"></Redirect> 
+  }
 
       else
         return (
@@ -281,15 +305,21 @@ class Sign extends Component{
 
                 {/* Button */}
                 <Button name={this.props.type} clickHandler={this.buttonClickHandler}/>
+
+                {this.props.type =='Sign Up' && <button onClick = {this.moveToSignIn}>Have Account</button>}
+                {this.props.type =='Sign In' && <button onClick = {this.moveToSignUp}>Don't Have Account</button>}
+
+
                 
                 
-                <GoogleLogin
+                
+                {/* <GoogleLogin
                     clientId="394103427165-8t7tv3gk5ne5birefeat95nocu0h40ha.apps.googleusercontent.com"
                     buttonText="Login"
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseFailure}
                     cookiePolicy={'single_host_origin'}
-                />,
+                />, */}
 
                  {/* Hey roll in the next update  */}
                 {/* <div id="bottom-elements">
