@@ -15,100 +15,67 @@ class Header extends Component{
              flag:props.flag,
              authKey:props.authKey
          }
-             
-         
-
 
     }
 
 
 
-    logout=()=>{
-        cookie.remove('userId', { path: '/' })
-        cookie.remove('user',{ path: '/' })
+    logout=async ()=>{
+        await cookie.remove('userId', { path: '/' })
+        await cookie.remove('user',{ path: '/' })
+       
         this.setState({
             flag:!this.state.flag,
         },()=>{console.log("I got called in logout", this.state.authKey, this.state.flag)})
   
     }
 
+    taLogout =async ()=>{
+         await cookie.remove('taId',{path:'/'});
+         await cookie.remove('taname',{path:'/'})
+         this.setState({
+            flag:!this.state.flag,
+        },()=>{console.log("I got called in logout", this.state.authKey, this.state.flag)})
+
+    }
+
+    
+
    
 
     render(){
-    const authKey = this.props.authKey
-    const username = cookie.load('user');
 
+
+
+    const authKey = this.props.authKey;
+    const username = cookie.load('user');
+    const taname = cookie.load('taname');
     
    
    console.log("props is header are", this.props)
 
 
-    if(username){
-        return(
+ 
 
 
+            return(
             <div id="header">
             
 
             <div id="header-left">
 
-               <h2>AMA</h2>
-                <small>Ask me anything</small>
+               <h2>Coding Ninjas</h2>
+                <small>Doubt Resolving</small>
 
             </div>
-
-
-            <div id="header-right">
-
-            <p id="header-username">{username}</p>
-
-            <Link to="/logout">
-                <span onClick={this.logout}>Sign Out</span>
-            </Link>
-
-
-            </div>
-            
-
-
 
         </div>
-        )
-    }
-    else{
 
-    return (
-        <div id="header">
-            
-
-            <div id="header-left">
-
-               <h2>AMA</h2>
-                <small>Ask me anything</small>
-
-            </div>
-
-
-            <div id="header-right">
-
-            <Link to="/signup">
-                <span>Sign up</span>
-            </Link>
-            <Link to="/signin">
-            <span>Sign In</span>
-            </Link>
-
-
-            </div>
-            
-
-
-
-        </div>
-    )
+            )
+        
 
     }
-}
+
 }
 
 function mapStateToProps(state){ 

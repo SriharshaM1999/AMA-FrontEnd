@@ -1,0 +1,33 @@
+#nothing{
+    font-weight:bold;
+    position:relative;
+    left:30%;
+    top:30vh;
+    font-size:3rem;
+    color:black;
+}
+
+#ta-logout-button{
+    /* position:relative; */
+    margin-top:5vh;
+    height:10vh;
+    width:15vw;
+    background-color: red;
+    
+}
+
+#ta-dashboard-button{
+    /* position:relative; */
+    margin-top:10vh;
+    height:10vh;
+    width:15vw;
+    background-color: greenyellow; 
+}
+
+#ta-temp{
+    margin-top:15vh;
+    color:black;
+    text-align:center;
+    border-bottom:1px solid black;
+}
+
